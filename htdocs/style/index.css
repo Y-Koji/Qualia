@@ -1,0 +1,144 @@
+﻿
+*
+{
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    cursor: context-menu;
+}
+
+a img
+{
+    cursor: pointer;
+}
+
+span
+{
+    min-height: 1.1em;
+}
+
+html, body
+{
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: #e5e5e5;
+}
+
+main
+{
+    padding-top: 60px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+main > a
+{
+    display: block;
+    margin-left: 10px;
+    float: left;
+}
+
+main > a > img
+{
+    width: 200px;
+}
+
+main > div
+{
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background: #FFF;
+    left: calc(50% - 200px);
+    top: calc(50% - 100px + 48px);
+    border: 1px solid #ff1ee6;
+    overflow: visible;
+}
+
+main > div:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    background: url("/img/qualia.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    top: calc(50% - 50px);
+    left: calc(50% - 150px);
+    z-index: 0;
+}
+
+main ul
+{
+    position: absolute;
+    list-style: none;
+    width: calc(100% - 40px);
+    z-index: 1;
+}
+
+main li
+{
+    display: block;
+    border: none;
+    text-align: center;
+    margin-left: -40px;
+}
+
+main li a
+{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #3CF;
+    background: rgba(255, 255, 255, .4);
+    font-weight: bold;
+}
+
+main li a:hover
+{
+    background: rgba(0, 0, 0, .1);
+}
+
+main > div > header
+{
+    position: absolute;
+    display: hidden;
+    font-size: 2em;
+    text-align: center;
+    top: -1em;
+    left: -20px;
+    width: calc(100% + 40px);
+    background: #ff3636;
+    color: #FFF;
+    box-sizing: border-box;
+}
+
+main > div > header:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    border: 13px solid transparent;
+    border-bottom: 13px solid #d12a2a;
+    transform: rotate(45deg);
+    bottom: -13px;
+    left: 6px;
+}
+
+main > div > header:after
+{
+    position: absolute;
+    display: block;
+    content: "";
+    border: 13px solid transparent;
+    border-top: 13px solid #d12a2a;
+    transform: rotate(135deg);
+    bottom: -13px;
+    right: 6px;
+}

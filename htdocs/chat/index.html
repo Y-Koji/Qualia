@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script>
+        if (!location.href.match(/^.*\/$/i))
+            location.href = location.href + '/';
+    </script>
+    <script type="text/javascript" src="/script/knockout-3.3.0.js"></script>
+    <script type="text/javascript" src="/script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/script/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/script/qualia.js"></script>
+    <script type="text/javascript" src="/script/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/script/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="/script/shortcut.js"></script>
+    <script type="text/javascript" src="./script/index.coffee"></script>
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="/style/header.css" />
+    <title>Qualia Chat</title>
+</head>
+<body>
+    <header>
+        <ul id="title">
+            <li>
+                <a href="/">Qualia</a>
+                <ul>
+                    <li><a href="/chat/">Chat</a></li>
+                    <li><a href="/file/">FileServer</a></li>
+                    <li><a href="/sync-pad/">SyncPad</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul id="users" data-bind="foreach: login.users">
+            <li data-bind="css: 'user ' + name">
+                <img data-bind="attr: { src: '/api/user/icon.json?name=' + name, title: name }" />
+                <input type="button" class="force-logout" value="×" data-bind="attr: { title: name + ' さんを強制ログアウトさせます' }, click: logout" />
+            </li>
+        </ul>
+        <ul id="menu">
+            <li><a href="#">Menu1</a></li>
+            <li><a href="#">Menu2</a></li>
+            <li><a href="#">Menu3</a></li>
+        </ul>
+    </header>
+    <main>
+        <ul id="upload-state" data-bind="foreach: uploads">
+            <li class="state">
+                <span class="state-bar" data-bind="style: { width: status() + '%' }"></span>
+                <span class="upload-file-name" data-bind="text: filename"></span>
+                <span class="status" data-bind="text: status() + '%'"></span>
+            </li>
+        </ul>
+        <div id="upload-area">
+            <span id="icon"></span>
+            <!-- <span id="file-fast"></span> -->
+            <span id="file"></span>
+        </div>
+        <form id="post-form" data-bind="submit: postform.submit, style: { }">
+            <header>投稿フォーム</header>
+            <input type="color" data-bind="value: postform.color, event: { change: postform.update }" />
+            <input type="text" placeholder="名前" data-bind="value: postform.name, event: { keyup: postform.update, change: postform.update }" />
+            <textarea placeholder="テキスト" data-bind="value: postform.text" ></textarea>
+            <input type="submit" />
+        </form>
+        <ul id="time-line" data-bind="foreach: timeline">
+            <li data-bind="attr: { id: id }">
+                <ul data-bind="style: { display: reply_visible }" class="reply">
+                    <li>
+                        <img class="icon" data-bind="attr: { src: '/api/user/icon.json?name=' + target.name }" />
+                        <div>
+                            <span class="name" data-bind="text: target.name, style: { color: target.color, 'border-bottom': '1px solid ' + target.color }"></span>
+                            <span class="text">
+                                <pre data-bind="html: target.text"></pre>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="delete" data-bind="click: delete_request">×</button>
+                <img class="icon" data-bind="attr: { src: '/api/user/icon.json?name=' + name }" />
+                <div>
+                    <span class="name" data-bind="text: name, style: { color: color, 'border-bottom': '1px solid ' + color }"></span>
+                    <span class="text">
+                        <pre data-bind="html: text"></pre>
+                    </span>
+                    <span class="date" data-bind="text: date"></span>
+                </div>
+                <form class="reply" data-bind="submit: reply_submit" >
+                    <input type="text" data-bind="value: reply_text" />
+                    <input type="submit" value="送信" />
+                </form>
+                <input type="hidden" name="id" data-bind="value: id" />
+            </li>
+        </ul>
+        <audio src="./notify.mp3" id="sound" preload="false"></audio>
+    </main>
+</body>
+</html>

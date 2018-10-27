@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/script/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/script/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/script/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="/script/shortcut.js"></script>
+    <script type="text/javascript" src="/script/knockout-3.3.0.js"></script>
+    <script src="/script/index.coffee" type="text/javascript" charset="utf-8"></script>
+    <script src="/script/qualia.coffee" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="/style/header.css" />
+    <title>Qualia</title>
+</head>
+<body>
+    <header>
+        <ul id="title">
+            <li>
+                <a href="/">Qualia</a>
+                <ul data-bind="foreach: services">
+                    <li><a href="/chat/">Chat</a></li>
+                    <li><a href="/file/">FileServer</a></li>
+                    <li><a href="/sync-pad/">SyncPad</a></li>
+                </ul>
+            </li>
+        </ul>
+    <span style="display: block; position: fixed; width: 300px; height: 100px; z-index: -1; bottom: 0; padding: .5em; font-size: .7em; overflow-y: scroll; background: rgba(255, 255, 255, .7);">
+    IE/FireFox対応しました。<hr />
+    ファイルサーバのデザイン(html/css)作ってくれる人募集<hr />
+    つ<a href="http://172.17.13.21/file/GoogleChromePortable_42.0.2311.152_online.paf.exe">Google Chrome Portable</a>
+    </span>
+    </header>
+    <main>
+    <!--
+        <a href="http://cutlass.qee.jp/" target="_blank"><img src="http://cutlass.qee.jp/bn.jpg" /></a>
+        <a href="http://groneko.web.fc2.com/" target="_blank"><img src="http://groneko.web.fc2.com/banner.png"></a>
+        -->
+        <div>
+            <header>Services</header>
+            <ul>
+                <li><a href="/chat/">Qualia Chat</a></li>
+                <li><a href="/file/">Qualia File Server</a></li>
+                <li><a href="/sync-pad/">Qualia Syncpad</a></li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

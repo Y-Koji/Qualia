@@ -1,0 +1,329 @@
+﻿
+*
+{
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    cursor: context-menu;
+}
+
+a img
+{
+    cursor: pointer;
+}
+
+span
+{
+    min-height: 1.1em;
+}
+
+html, body
+{
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: #e5e5e5;
+}
+
+body > header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: #ffc300;
+    box-shadow: #333 0px 3px 3px;
+    z-index: 3;
+}
+
+body > header span#title
+{
+    color: #FFF;
+    font-size: 25px;
+    padding: 6.5px;
+    z-index: 4;
+}
+
+main
+{
+    padding-top: 60px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+main > ul
+{
+    list-style: none;
+}
+
+main > ul > li
+{
+    display: block;
+    width: 140px;
+    height: 160px;
+    padding: 20px;
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 1;
+}
+
+main > ul > li:not(:last-child)
+{
+    -webkit-animation: show-pad 1s;
+}
+
+main > ul > li:hover
+{
+    background: rgba(0, 0, 0, .1);
+    transition: all .2s;
+}
+
+main > ul > li *
+{
+    cursor: pointer;
+}
+
+main > ul > li > div
+{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 120px;
+    background: #EEE;
+    border: 2px solid rgba(0, 0, 0, .2);
+}
+
+main > ul > li > div:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 40px;
+    height: 40px;
+    top: -2px;
+    right: -2px;
+    background: #e5e5e5;
+    z-index: 0;
+}
+
+main > ul > li > div:after
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    right: -10px;
+    border: 2px solid rgba(0, 0, 0, .2);
+    background: transparent;
+}
+
+main > ul > li > div > input.pad-name
+{
+    position: absolute;
+    display: block;
+    background: rgba(0, 0, 0, .5);
+    left: 10px;
+    width: 80px;
+    bottom: -10px;
+    padding: 10px;
+    color: #EEE;
+    border: none;
+    outline: none;
+    cursor: text;
+}
+
+main > ul > li > div > input.pad-name:focus
+{
+    outline: 1px solid #FFF;
+}
+
+main > ul > li > div > button.delete
+{
+    position: absolute;
+    border: none;
+    outline: none;
+    color: #FFF;
+    right: -8px;
+    top: -8px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 50, 50, .7);
+    opacity: 0;
+    transition: .5s;
+    z-index: 1;
+}
+
+main > ul > li:hover > div > button.delete
+{
+    transition: .2s;
+    opacity: 1;
+}
+
+main > ul > li > div:hover > button.delete:hover
+{
+    background: rgba(255, 50, 50, 1);
+}
+
+main > ul > li > div > div.menu
+{
+    margin-top: 45px;
+    padding-left: 4px;
+}
+
+main > ul > li > div > div.menu > button
+{
+    height: 26px;
+    outline: none;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    color: #3CF;
+    visibility: hidden;
+}
+
+main > ul > li:hover > div > div.menu > button
+{
+    visibility: visible;
+}
+
+main > ul > li > div > div.menu > button:hover
+{
+    background: rgba(0, 0, 0, .1);
+}
+
+main > ul > li:last-child
+{
+    position: relative;
+    padding: 0;
+
+}
+
+main > ul > li:last-child:hover
+{
+    cursor: initial;
+    background: transparent;
+}
+
+main > ul > li:last-child > button#new-pad
+{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    background: transparent;
+}
+
+main > ul > li:last-child > button#new-pad:hover
+{
+    border: 10px dashed rgba(0, 0, 0, .5);
+}
+
+main > ul > li:last-child > button#new-pad:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 70px;
+    height: 20px;
+    background: rgba(0, 0, 0, .5);
+    left: calc(50% - 35px);
+    top: calc(50% - 10px);
+}
+
+main > ul > li:last-child > button#new-pad:after
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 20px;
+    height: 70px;
+    background: rgba(0, 0, 0, .5);
+    left: calc(50% - 10px);
+    top: calc(50% - 35px);
+}
+
+.pad
+{
+    position: absolute;
+    background: rgba(0, 0, 0, .8);
+    z-index: 5;
+}
+
+.pad > header
+{
+    min-height: 1em;
+    position: relative;
+    padding: 5px;
+}
+
+.pad > header > span.title
+{
+    color: #999;
+}
+
+.pad > header > span.name
+{
+    position: absolute;
+    color: #CCC;
+    left: calc(50% - 2em);
+}
+
+.pad > header > button.close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: none;
+    color: rgba(255, 0, 0, .7);
+    background: transparent;
+}
+
+.pad > header > button.close:hover
+{
+    background: rgba(255, 30, 30, .7);
+}
+
+.pad > textarea
+{
+    background: rgba(255, 255, 255, .2);
+    margin: 10px;
+    min-width: 300px;
+    min-height: 100px;
+    color: #DDD;
+    border: none;
+}
+
+.pad > textarea:hover, .pad > textarea:focus
+{
+    outline: 1px solid #3CF;
+}
+
+@-webkit-keyframes show-pad
+{
+    0% {
+        width: 0;
+        height: 0;
+        padding: 0;
+    }
+
+    100% {
+        width: 140px;
+        height: 160px;
+        padding: 20px;
+    }
+}

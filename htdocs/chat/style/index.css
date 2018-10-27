@@ -1,0 +1,729 @@
+﻿
+*
+{
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    cursor: context-menu;
+}
+
+span
+{
+    min-height: 1.1em;
+}
+
+img
+{
+    background: transparent;
+}
+
+html, body
+{
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: #e5e5e5;
+}
+
+body > header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: #ffc300;
+    box-shadow: #333 0px 3px 3px;
+    z-index: 3;
+}
+
+body > header span#title
+{
+    color: #FFF;
+    font-size: 25px;
+    padding: 6.5px;
+    z-index: 4;
+}
+
+#menu
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 47px;
+    height: 47px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+#menu:hover
+{
+    background: rgba(255, 255, 255, .3);
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+#menu:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url('/img/menu.png');
+    background-size: cover;
+}
+
+#menu > li
+{
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#menu > li:first-child
+{
+    margin-top: 48px;
+}
+
+#menu > li > a
+{
+    display: block;
+    background: #ffc300;
+    width: 100px;
+    height: 30px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #EEE;
+    margin-left: -70px;
+    border-left: 1px solid rgba(0, 0, 0, .5);
+    border-right: 1px solid rgba(0, 0, 0, .5);
+}
+
+#menu > li > a:hover
+{
+    background: #E0AC00;
+}
+
+#menu > li:last-child > a
+{
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+}
+
+body > header > ul#users
+{
+    position: absolute;
+    right: 50px;
+    top: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#users > li.user
+{
+    position: relative;
+    height: 48px;
+    float: left;
+}
+
+#users > li.user img
+{
+    border-radius: 50%;
+    height: 48px;
+    transition: all .5s;
+    -webkit-animation: user_login_animation 1s ease;
+}
+
+
+#users > li.user:hover img
+{
+    margin-right: 1.5em;
+    transform: rotate(-45deg);
+    transition: all .2s;
+}
+
+#users > li.user > input[type=button].force-logout
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #EEE;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: all .5s;
+}
+
+#users > li.user:hover > input[type=button].force-logout
+{
+    height: 100%;
+    width: 1.5em;
+    background: rgba(255, 20, 20, .4);
+    opacity: 1;
+    transition: all .2s;
+}
+
+#users > li.user:hover > input[type=button].force-logout:hover
+{
+    background: rgba(255, 20, 20, .8);
+}
+
+main
+{
+    margin: 48px auto 0;
+}
+
+main ul#upload-state
+{
+    position: fixed;
+    list-style: none;
+    opacity: .5;
+}
+
+main ul#upload-state > li.state
+{
+    position: relative;
+    width: 15em;
+    height: 70px;
+    background: #EEE;
+    display: block;
+    border-bottom: 1px dashed #EEE;
+}
+
+main ul#upload-state > li.state:last-child
+{
+    border: none;
+}
+
+main ul#upload-state > li.state span.state-bar
+{
+    display: block;
+    height: 100%;
+    background: #3CF;
+}
+
+main ul#upload-state > li.state span.upload-file-name
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(80, 80, 80, .5);
+    color: #EEE;
+    padding: 5px;
+}
+
+main ul#upload-state > li.state span.status
+{
+    position: absolute;
+    display: block;
+    color: #EEE;
+    left:5px;
+    bottom: 5px;
+}
+
+main div#upload-area
+{
+    position: fixed;
+    /* width: 500px;
+    height: 300px; */
+    background: rgba(0, 0, 0, .3);
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 3;
+}
+
+main div#upload-area span#icon
+{
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+main div#upload-area span#icon:before
+{
+    display: block;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: url("../img/icon.png");
+    background-size: cover;
+}
+
+main div#upload-area span#file-fast
+{
+    display: block;
+    position: absolute;
+    left: 100px;
+    width: calc(100% - 100px);
+    height: 100px;
+}
+
+main div#upload-area span#file-fast:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    width: calc(100% - 210px);
+    height: 80px;
+    left: 50px;
+    top: 10px;
+    background: url('../img/fast-upload.png');
+    background-size: cover;
+}
+
+main div#upload-area span#file
+{
+    display: block;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 200px;
+}
+
+main div#upload-area span
+{
+    border: 1px dashed rgba(255, 255, 255, .5);
+    box-sizing: border-box;
+}
+
+main div#upload-area span:hover
+{
+    background: rgba(255, 255, 255, .3);
+}
+
+main form#post-form
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: rgba(30, 30, 30, .8);
+    border: 1px solid #ff3257;
+    box-shadow: 2px 2px 3px #5A5A5A;
+    overflow: hidden;
+    z-index: 5;
+}
+
+main form#post-form > header
+{
+    color: #FFF;
+    font-size: 20px;
+    background: #ff3257;
+    text-align: center;
+}
+
+main form#post-form > input[type=color]
+{
+    position: absolute;
+    left: 190px;
+    top: 40px;
+}
+
+main form#post-form > input[type=text]
+{
+    display: block;
+    margin: 10px auto 10px 20px;
+    width: 150px;
+    text-align: center;
+    padding: 5px;
+    background: transparent;
+    color: #BBB;
+    border: 1px solid transparent;
+}
+
+main form#post-form > input[type=text]:hover
+{
+    border: 1px solid #33ffc1;
+}
+
+main form#post-form > input[type=text]:focus
+{
+    outline: none;
+    border: 1px solid #ff32ee;
+}
+
+main form#post-form > textarea
+{
+    display: block;
+    margin: 10px;
+    min-width: 280px;
+    background: transparent;
+    color: #BBB;
+    border: 1px solid transparent;
+}
+
+main form#post-form > textarea:hover
+{
+    border: 1px solid #33ffc1;
+}
+
+main form#post-form > textarea:focus
+{
+    outline: none;
+    border: 1px solid #ff32ee;
+}
+
+main form#post-form > input[type=submit]
+{
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: calc(100% - 20px);
+    background: transparent;
+    color: #DDD;
+    border: none;
+}
+
+main form#post-form > input[type=submit]:focus
+{
+    outline: none;
+}
+
+main form#post-form > input[type=submit]:hover
+{
+    background: rgba(255, 255, 255, .1);
+}
+
+main ul#time-line
+{
+    position: relative;
+    margin: auto;
+    max-width: 900px;
+    min-height: 100px;
+    margin-top: 48px;
+    list-style: none;
+    z-index: 1;
+}
+
+main ul#time-line li
+{
+    position: relative;
+    min-height: 100px;
+    background: rgba(255, 255, 255, .5);
+    border-bottom: 1px dashed #BBB;
+    transition: all .5s;
+    overflow: hidden;
+    -webkit-animation: show_post 1s ease;
+    -ms-animation: show_post 1s ease;
+    -moz-animation: show_post 1s ease;
+}
+
+main ul#time-line li:hover
+{
+    background: rgba(220, 220, 220, .7);
+}
+
+main ul#time-line li:before
+{
+    position: absolute;
+    display: block;
+    content: "";
+    left: 0;
+    top: calc(50% - 50px);
+    border: 50px solid transparent;
+    border-right: 0;
+    border-left: 50px solid rgba(0, 0, 0, .1);
+    transition: all .5s;
+    z-index: 1;
+}
+
+main ul#time-line li:hover:before
+{
+    left: 72px;
+    border-left: 50px solid #3CF;
+    transition: all .2s;
+}
+
+main ul#time-line li > button.delete
+{
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background: rgba(255, 0, 0, .5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    right: -40px;
+    top: -40px;
+}
+
+main ul#time-line li > button.delete:hover
+{
+    background: #F00;
+}
+
+main ul#time-line li:hover > button.delete
+{
+    right: 0;
+    top: 0;
+    transition: .2s;
+}
+
+main ul#time-line li > img.icon
+{
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - 30px);
+    left: 10px;
+    width: 60px;
+    height: 60px;
+    float: left;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+main ul#time-line li > div
+{
+    display: block;
+    padding: 1em;
+    margin-left: calc(100px + 1em);
+}
+
+main ul#time-line li > div span.name
+{
+    display: block;
+    border-bottom: 1px solid #DDD;
+}
+
+main ul#time-line li > div span.text
+{
+    display: block;
+    margin: 5px auto auto 1em;
+    word-wrap: break-word;
+    -ms-word-wrap: break-word;
+    word-break: break-all;
+    -ms-word-break: break-all;
+}
+
+main ul#time-line li > div span.text img
+{
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}
+
+main ul#time-line li > div span.date
+{
+    display: block;
+    text-align: right;
+    font-size: .7em;
+}
+
+main ul#time-line li > form
+{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+main ul#time-line li:hover > form
+{
+    height: 2em;
+    transition: all .5s;
+}
+
+main ul#time-line li > form input[type=text]
+{
+    margin-left: 100px;
+    width: calc(100% - 220px);
+    outline: none;
+    color: #555;
+    border: 1px solid #ffc300;
+    padding-left: 1.5em;
+    background: transparent;
+    border-radius: 5px;
+}
+
+main ul#time-line li > form input[type=text]:hover
+{
+    background: rgba(255, 255, 255, .2);
+}
+
+main ul#time-line li > form input[type=text]:focus
+{
+    cursor: text;
+}
+
+main ul#time-line li > form input[type=submit]
+{
+    position: absolute;
+    width: 80px;
+    top: 0;
+    right: 10px;
+    border: none;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+main ul#time-line li > form input[type=submit]:hover
+{
+    border: 1px solid #ff32ee;
+    background: #ff32ee;
+    color: #FFF;
+    cursor: pointer;
+}
+
+main ul#time-line li > form input[type=submit]:focus
+{
+    outline: none;
+}
+
+main ul#time-line li.base
+{
+    border-bottom: 1px dashed #ff8181;
+    background: #e3ffe1;
+}
+
+main ul#time-line li > ul.reply
+{
+    margin-left: 80px;
+}
+
+main ul#time-line li > ul.reply > li
+{
+    background: rgba(0, 197, 255, 0.2);
+}
+
+main ul#time-line li > ul.reply > li:hover:before
+{
+    border-left: 50px solid #ff32ee;
+}
+
+main ul#time-line li a
+{
+    cursor: pointer;
+}
+
+main ul#time-line li.file
+{
+    background: #FDD;
+}
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+@-webkit-keyframes show_post
+{
+    0%
+    {
+        margin-top: -100px;
+    }
+
+    100%
+    {
+    	margin-top: 0;
+    }
+}
+
+@-ms-keyframes show_post
+{
+    0%
+    {
+        margin-top: -100px;
+    }
+
+    100%
+    {
+        margin-top: 0;
+    }
+}
+
+@-moz-keyframes show_post
+{
+    0%
+    {
+        margin-top: -100px;
+    }
+
+    100%
+    {
+        margin-top: 0;
+    }
+}
+
+@-webkit-keyframes show_post_form
+{
+	0%
+	{
+		opacity: 0;
+	}
+
+	100%
+	{
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes user_login_animation
+{
+    0%
+    {
+        width: 0;
+        height: 0;
+    }
+
+    100%
+    {
+        width: auto;
+        height: 48px;
+    }
+}
+
+@media (max-width: 800px)
+{
+	main form#post-form
+	{
+		bottom: 0;
+		left: 0;
+		width: calc(100% - 40px);
+		-webkit-animation: post_form_transform .5s ease;
+	}
+
+	main form#post-form > header
+	{
+		display: none;
+	}
+
+	main form#post-form > input, main form#post-form > input[type=text]
+	{
+		display: none;
+	}
+
+	main form#post-form > textarea
+	{
+		min-width: 0;
+		width: calc(100% - 20px);
+	}
+
+	@-webkit-keyframes post_form_transform
+	{
+		0%
+		{
+		}
+
+		100%
+		{
+			width: 100%;
+		}
+	}
+}

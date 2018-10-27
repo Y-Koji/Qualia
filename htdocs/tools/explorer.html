@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><!-- TITLE --></title>
+    <script src="/script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/script/shortcut.js"></script>
+    <script type="text/javascript" src="/script/qualia.js"></script>
+    <script src="/script/explorer.js"></script>
+    <script>
+        $(function () {
+            button = $($('input[type=button]')[0]);
+            button.on('click', function () {
+                qualia.upload($('input[type=file]')[0].files[0] , $('input[type=file]')[0].files[0].name, '/* CURRENT DIRECTORY */'.replace(/htdocs\//, ''), null, function(data){ location.href = location.href })
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="/style/explorer.css" />
+</head>
+<body>
+    <header>
+        <h1><!-- PATH --></h1>
+    </header>
+    <ul>
+<!-- DIRECTORY INFO -->
+    </ul>
+    <form action="">
+        <input type="file" />
+        <input type="button" name="" value="送信" />
+        <hr />
+        <input id="dir-name" type="text" />
+        <input id="mkdir" type="button" value="mkdir" />
+    </form>
+    <footer>
+        <span class="copy">Copy &copy; 2015 Koji Yasutomi</span>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿
+* {
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+
+body {
+    background: #DDD;
+}
+
+header > h1 {
+    color: #333;
+}
+
+li.file {
+    color: green;
+
+}
+
+li.dir {
+    color: red;
+}
+
+li.err {
+    color: yellow;
+}
+
+footer span.copy {
+    display: block;
+    margin: auto;
+}

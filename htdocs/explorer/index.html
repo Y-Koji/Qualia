@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script>
+        if (!location.href.match(/^.*\/$/i))
+            location.href = location.href + '/';
+    </script>
+	<script src="/script/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/script/knockout-3.3.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./script/index.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+	<header>
+		<ul id="current-directory" data-bind="foreach: pwd">
+			<li><a href="#" data-bind="text: name"></a></li><!--
+			<li><a href="#">sfile</a></li>
+			<li><a href="#">sfile</a></li>
+			<li><a href="#">sfile</a></li>-->
+		</ul>
+	</header>
+	<main>
+	<span style="font-size: .8em;">2015 &copy; Koji Yasutomi. </span>
+		<ul id="files" data-bind="foreach: ls">
+			<li data-bind="css: type">
+				<span class="name">
+					<a href="#" data-bind="text: data.name"></a>
+				</span>
+			</li>
+		</ul>
+	</main>
+</body>
+</html>

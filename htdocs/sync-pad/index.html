@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/script/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/script/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/script/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/script/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="/script/shortcut.js"></script>
+    <script type="text/javascript" src="/script/qualia.js"></script>
+    <script src="./script/index.coffee" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="/style/header.css" />
+    <title>Qualia</title>
+</head>
+<body>
+    <header>
+        <ul id="title">
+            <li>
+                <a href="/">Qualia</a>
+                <ul>
+                    <li><a href="/chat/">Chat</a></li>
+                    <li><a href="/file/">FileServer</a></li>
+                    <li><a href="/sync-pad/">SyncPad</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <main>
+    <!--
+        <div class="pad" id="3">
+            <header>
+                <span class="title">title</span>
+                <span class="name">name</span>
+                <button class="close">×</button>
+            </header>
+            <textarea class="text"></textarea>
+        </div>
+    -->
+        <ul>
+            <li style="display: none;">
+                <div>
+                    <button class="delete">×</button>
+                    <div class="menu">
+                        <button class="edit">Edit</button>
+                        <button class="view">View</button>
+                    </div>
+                    <input type="text" class="pad-name" value="sample.txt"></input>
+                </div>
+                <input type="hidden" name="title" value="em" />
+                <input type="hidden" name="id" value="1" />
+            </li>
+            <li>
+                <button id="new-pad"></button>
+            </li>
+        </ul>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

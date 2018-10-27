@@ -1,0 +1,79 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'coffee-script' ]
+2 info using npm@4.1.2
+3 info using node@v7.5.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData coffee-script
+8 silly fetchNamedPackageData coffee-script
+9 silly mapToRegistry name coffee-script
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'coffee-script',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'coffee-script',
+12 silly mapToRegistry   name: 'coffee-script',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/coffee-script
+14 verbose request uri https://registry.npmjs.org/coffee-script
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 15:51:25
+17 verbose request id b1b8b842ce5cb40f
+18 http request GET https://registry.npmjs.org/coffee-script
+19 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=socket hang up
+20 info attempt registry request try #2 at 15:51:35
+21 http request GET https://registry.npmjs.org/coffee-script
+22 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=socket hang up
+23 info attempt registry request try #3 at 15:52:35
+24 http request GET https://registry.npmjs.org/coffee-script
+25 silly fetchPackageMetaData Error: tunneling socket could not be established, cause=socket hang up
+25 silly fetchPackageMetaData     at ClientRequest.onError (C:\Program Files\nodejs\node_modules\npm\node_modules\request\node_modules\tunnel-agent\index.js:176:17)
+25 silly fetchPackageMetaData     at Object.onceWrapper (events.js:291:19)
+25 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+25 silly fetchPackageMetaData     at ClientRequest.emit (events.js:189:7)
+25 silly fetchPackageMetaData     at TLSSocket.socketErrorListener (_http_client.js:358:9)
+25 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+25 silly fetchPackageMetaData     at TLSSocket.emit (events.js:189:7)
+25 silly fetchPackageMetaData     at emitErrorNT (net.js:1280:8)
+25 silly fetchPackageMetaData     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+25 silly fetchPackageMetaData     at process._tickCallback (internal/process/next_tick.js:98:9)
+25 silly fetchPackageMetaData  error for coffee-script { Error: tunneling socket could not be established, cause=socket hang up
+25 silly fetchPackageMetaData     at ClientRequest.onError (C:\Program Files\nodejs\node_modules\npm\node_modules\request\node_modules\tunnel-agent\index.js:176:17)
+25 silly fetchPackageMetaData     at Object.onceWrapper (events.js:291:19)
+25 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+25 silly fetchPackageMetaData     at ClientRequest.emit (events.js:189:7)
+25 silly fetchPackageMetaData     at TLSSocket.socketErrorListener (_http_client.js:358:9)
+25 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+25 silly fetchPackageMetaData     at TLSSocket.emit (events.js:189:7)
+25 silly fetchPackageMetaData     at emitErrorNT (net.js:1280:8)
+25 silly fetchPackageMetaData     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+25 silly fetchPackageMetaData     at process._tickCallback (internal/process/next_tick.js:98:9) code: 'ECONNRESET' }
+26 silly rollbackFailedOptional Starting
+27 verbose stack TypeError: Cannot read property 'path' of null
+27 verbose stack     at Installer.rollbackFailedOptional (C:\Program Files\nodejs\node_modules\npm\lib\install.js:511:29)
+27 verbose stack     at Array.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+27 verbose stack     at LOOP (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+27 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:18:7
+27 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:337:5
+27 verbose stack     at Array.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+27 verbose stack     at LOOP (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+27 verbose stack     at chain (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+27 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:294:5
+27 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:16:22
+28 verbose cwd C:\nginx\Qualia
+29 error Windows_NT 6.1.7601
+30 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "coffee-script"
+31 error node v7.5.0
+32 error npm  v4.1.2
+33 error Cannot read property 'path' of null
+34 error If you need help, you may report this error at:
+34 error     <https://github.com/npm/npm/issues>
+35 verbose exit [ 1, true ]
